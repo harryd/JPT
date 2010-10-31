@@ -33,7 +33,13 @@ from commands import commandmanager
 # system imports
 import time, sys
 
-
+class User:
+    def __init__(self, nick, messager):
+        self.nick = nick
+        self.messager = messager
+    def message(self, msg):
+        self.messager.msg(self.nick, msg)
+        
 class MessageLogger:
     """
     An independent logger class (because separation of application
@@ -55,7 +61,7 @@ class MessageLogger:
 class LogBot(irc.IRCClient):
     """A logging IRC bot."""
     
-    nickname = "twistedbot"
+    nickname = "jp2"
     
     def connectionMade(self):
         irc.IRCClient.connectionMade(self)
@@ -82,13 +88,13 @@ class LogBot(irc.IRCClient):
 
     def privmsg(self, user, channel, msg):
         """This will get called when the bot receives a message."""
-        user = user.split('!', 1)[0]
+        user = User(user.split('!', 1)[0], self)
         self.logger.log("<%s> %s" % (user, msg))
         
         # Check to see if they're sending me a private message
         if channel == self.nickname:
             msg = "It isn't nice to whisper!  Play nice with the group."
-            self.msg(user, msg)
+            user.message(msg)
             return
 
         # Otherwise check to see if it is a message directed at me
@@ -135,7 +141,7 @@ if __name__ == '__main__':
     
     # create factory protocol and application
     f = LogBotFactory('anapnea', 'jp.log')
-
+    
     # connect factory to this host and port
     reactor.connectTCP("irc.freenode.net", 6667, f)
 

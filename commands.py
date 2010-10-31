@@ -19,13 +19,13 @@ class CommandManager:
 				try:
 					func(user, text)
 				except UsageError, e:
-					user.msg('Invalid Usage of !' + command + ' command. ' + str(e))
+					user.message('Invalid Usage of !' + command + ' command. ' + str(e))
 				except:
 					exceptionType, exceptionValue, exceptionTraceback = sys.exc_info()	
 					logging.warn('Uncaught exception occured in command handler.')
 					logging.warn(traceback.format_exc())
 		else:
-			user.msg('Command not found')
+			user.message('Command not found')
 	def onMsg(self, user, text):
 		if len(text) > 0 and self.prefixes.find(text[0]) != -1:
 			cmd = text[1:].split(' ')[0]
@@ -44,3 +44,7 @@ class commandHandler(object):
 		self.__name__ = f.__name__
 		registerCommandHandler(self.command_name, f)
 		return f
+
+@commandHandler('echo')
+def echo(user, msg):
+    user.message("hi %s" % user.nick)
