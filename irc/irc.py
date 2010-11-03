@@ -46,7 +46,7 @@ class LogBot(irc.IRCClient):
     
     def connectionMade(self):
         irc.IRCClient.connectionMade(self)
-        self.cmd = Commands()
+        self.cmds = Commands(self)
         self.logger = MessageLogger(open(self.factory.filename, "a"))
         self.logger.log("[connected at %s]" % 
                         time.asctime(time.localtime(time.time())))
@@ -69,8 +69,12 @@ class LogBot(irc.IRCClient):
         """This will get called when the bot joins the channel."""
         self.logger.log("[I have joined %s]" % channel)
 
+    def handleCommand(self, command, prefix, params):
+        pass
+
     def privmsg(self, user, channel, msg):
         """This will get called when the bot receives a message."""
+        print user
         user = User(user.split('!', 1)[0], self)
         channel = Channel(channel, self)
         self.logger.log("<%s> %s" % (user, msg))
@@ -78,10 +82,9 @@ class LogBot(irc.IRCClient):
 
         if msg[0] == '!':
             cmd = msg[1:].split(' ')[0]
-            if cmd == 'echo':
-                self.cmd.echo(user, channel, msg[len(cmd)+2:])
-            elif cmd == 'register':
-                self.cmd.register(user, channel, msg[len(cmd)+2:])
+            if hasattr(self.cmds, cmd) and cmd != '__init__':
+                func = getattr(self.cmds, cmd, None)
+                func(user, channel, msg[len(cmd)+2:])
             else:
                 channel.message('%s: Command not found.' % user.nick)
         # Check to see if they're sending me a private message
