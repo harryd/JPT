@@ -1,0 +1,72 @@
+[23:16:45] [connected at Sun Oct 31 23:16:45 2010]
+[23:16:45] <<__main__.User instance at 0xab5098>> *** Looking up your hostname...
+[23:16:45] <<__main__.User instance at 0xaa78c0>> *** Checking Ident
+[23:16:45] <<__main__.User instance at 0xaa78c0>> *** Found your hostname
+[23:16:45] <<__main__.User instance at 0xaa78c0>> *** Got Ident response
+[23:16:45] <<__main__.User instance at 0xaa78c0>> *** Spoofing your IP
+[23:16:49] [I have joined #anapnea2]
+[23:17:23] <<__main__.User instance at 0xaa7908>> !echo
+[23:17:56] [disconnected at Sun Oct 31 23:17:56 2010]
+[23:17:58] [connected at Sun Oct 31 23:17:58 2010]
+[23:17:59] <<__main__.User instance at 0xab2098>> *** Looking up your hostname...
+[23:17:59] <<__main__.User instance at 0xaa48c0>> *** Checking Ident
+[23:17:59] <<__main__.User instance at 0xaa48c0>> *** Found your hostname
+[23:17:59] <<__main__.User instance at 0xaa48c0>> *** Got Ident response
+[23:17:59] <<__main__.User instance at 0xaa48c0>> *** Spoofing your IP
+[23:18:03] [I have joined #anapnea2]
+[23:18:05] <<__main__.User instance at 0xaa48c0>> !echo
+[23:19:00] [disconnected at Sun Oct 31 23:19:00 2010]
+[23:19:02] [connected at Sun Oct 31 23:19:02 2010]
+[23:19:02] <<__main__.User instance at 0xab8098>> *** Looking up your hostname...
+[23:19:02] <<__main__.User instance at 0xaaa8c0>> *** Checking Ident
+[23:19:02] <<__main__.User instance at 0xaaa8c0>> *** Got Ident response
+[23:19:02] <<__main__.User instance at 0xaaa8c0>> *** Found your hostname
+[23:19:03] <<__main__.User instance at 0xaaa8c0>> *** Spoofing your IP
+[23:19:06] [I have joined #anapnea2]
+[23:19:12] <<__main__.User instance at 0xaaa8c0>> !echo
+[23:26:15] [disconnected at Sun Oct 31 23:26:15 2010]
+[23:26:16] [connected at Sun Oct 31 23:26:16 2010]
+[23:26:17] <<__main__.User instance at 0xab6098>> *** Looking up your hostname...
+[23:26:17] <<__main__.User instance at 0xaa88c0>> *** Checking Ident
+[23:26:17] <<__main__.User instance at 0xaa88c0>> *** Got Ident response
+[23:26:17] <<__main__.User instance at 0xaa88c0>> *** Found your hostname
+[23:26:18] <<__main__.User instance at 0xaa88c0>> *** Spoofing your IP
+[23:26:21] [I have joined #anapnea2]
+[23:26:23] <<__main__.User instance at 0xaa88c0>> !echo
+[23:28:54] [disconnected at Sun Oct 31 23:28:54 2010]
+[23:38:42] [connected at Sun Oct 31 23:38:42 2010]
+[23:38:42] <<__main__.User instance at 0xab7098>> *** Looking up your hostname...
+[23:38:42] <<__main__.User instance at 0xaa98c0>> *** Checking Ident
+[23:38:42] <<__main__.User instance at 0xaa98c0>> *** Found your hostname
+[23:38:42] <<__main__.User instance at 0xaa98c0>> *** Got Ident response
+[23:38:42] <<__main__.User instance at 0xaa98c0>> *** Spoofing your IP
+[23:38:46] [I have joined #anapnea2]
+[23:38:47] <<__main__.User instance at 0xaa98c0>> !echo
+[23:39:01] [disconnected at Sun Oct 31 23:39:01 2010]
+[23:39:03] [connected at Sun Oct 31 23:39:03 2010]
+[23:39:03] <<__main__.User instance at 0xab3098>> *** Looking up your hostname...
+[23:39:03] <<__main__.User instance at 0xaa58c0>> *** Checking Ident
+[23:39:03] <<__main__.User instance at 0xaa58c0>> *** Got Ident response
+[23:39:03] <<__main__.User instance at 0xaa58c0>> *** Found your hostname
+[23:39:04] <<__main__.User instance at 0xaa58c0>> *** Spoofing your IP
+[23:39:07] [I have joined #anapnea2]
+[23:39:08] <<__main__.User instance at 0xaa58c0>> !echo
+[23:42:17] [disconnected at Sun Oct 31 23:42:17 2010]
+[23:42:20] [connected at Sun Oct 31 23:42:20 2010]
+[23:42:20] <<__main__.User instance at 0xab4098>> *** Looking up your hostname...
+[23:42:20] <<__main__.User instance at 0xaa68c0>> *** Checking Ident
+[23:42:20] <<__main__.User instance at 0xaa68c0>> *** Found your hostname
+[23:42:20] <<__main__.User instance at 0xaa68c0>> *** Got Ident response
+[23:42:20] <<__main__.User instance at 0xaa68c0>> *** Spoofing your IP
+[23:42:24] [I have joined #anapnea2]
+[23:42:25] <<__main__.User instance at 0xaa68c0>> !echo
+[23:57:10] [disconnected at Sun Oct 31 23:57:10 2010]
+[00:01:17] [connected at Mon Nov  1 00:01:17 2010]
+[00:01:17] <<__main__.User instance at 0xab10e0>> *** Looking up your hostname...
+[00:01:18] <<__main__.User instance at 0xaa2908>> *** Checking Ident
+[00:01:18] <<__main__.User instance at 0xaa2908>> *** Found your hostname
+[00:01:18] <<__main__.User instance at 0xaa2908>> *** Got Ident response
+[00:01:18] <<__main__.User instance at 0xaa2908>> *** Spoofing your IP
+[00:01:21] [I have joined #anapnea2]
+[00:01:27] <<__main__.User instance at 0xaa2908>> !echo
+[00:03:45] [disconnected at Mon Nov  1 00:03:45 2010]
