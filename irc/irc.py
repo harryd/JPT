@@ -2,7 +2,7 @@ from twisted.words.protocols import irc
 from twisted.internet import reactor, protocol
 from twisted.python import log
 
-from commands import commandmanager
+from commands import Commands
 
 # system imports
 import time, sys
@@ -13,6 +13,13 @@ class User:
         self.messager = messager
     def message(self, msg):
         self.messager.msg(self.nick, msg)
+        
+class Channel:
+    def __init__(self, name, messager):
+        self.name = name
+        self.messager = messager
+    def message(self, msg):
+        self.messager.msg(self.name, msg)
         
 class MessageLogger:
     """
@@ -39,6 +46,7 @@ class LogBot(irc.IRCClient):
     
     def connectionMade(self):
         irc.IRCClient.connectionMade(self)
+        self.cmd = Commands()
         self.logger = MessageLogger(open(self.factory.filename, "a"))
         self.logger.log("[connected at %s]" % 
                         time.asctime(time.localtime(time.time())))
@@ -48,6 +56,7 @@ class LogBot(irc.IRCClient):
         self.logger.log("[disconnected at %s]" % 
                         time.asctime(time.localtime(time.time())))
         self.logger.close()
+
 
 
     # callbacks for events
@@ -63,16 +72,25 @@ class LogBot(irc.IRCClient):
     def privmsg(self, user, channel, msg):
         """This will get called when the bot receives a message."""
         user = User(user.split('!', 1)[0], self)
+        channel = Channel(channel, self)
         self.logger.log("<%s> %s" % (user, msg))
         
+
+        if msg[0] == '!':
+            cmd = msg[1:].split(' ')[0]
+            if cmd == 'echo':
+                self.cmd.echo(user, channel, msg[len(cmd)+2:])
+            elif cmd == 'register':
+                self.cmd.register(user, channel, msg[len(cmd)+2:])
+            else:
+                channel.message('%s: Command not found.' % user.nick)
         # Check to see if they're sending me a private message
-        if channel == self.nickname:
+        if channel.name == self.nickname:
             msg = "It isn't nice to whisper!  Play nice with the group."
             user.message(msg)
             return
 
         # Otherwise check to see if it is a message directed at me
-        commandmanager.onMsg(user, msg)
 
     def action(self, user, channel, msg):
         """This will get called when the bot sees someone do an action."""
