@@ -1,22 +1,26 @@
 class Commands:
     def __init__(self, callback):
-      	self.callback = callback
-        self.callback.badcmd = ['__init__', 'badcmd', 'callback', 'msg', 'users']
+      	self._callback = callback
         
     def register(self, user, channel, text):
-	if self.callback.users[user]['allowed']:
-	    self.callback.msg(channel, "%s has registered. (not really)" % user)
-	    self.callback.users[user]['allowed'] = False
-	elif self.callback.users[user]['voice']:
-	    self.callback.msg(channel, "%s has registered. (not really)" % user)
-            self.callback.devoice(user, channel)
+	if self._callback.users[user]['allowed']:
+	    self._callback.msg(channel, "%s has registered. (not really)" % user)
+	    self._callback.users[user]['allowed'] = False
+	elif self._callback.users[user]['voice']:
+	    self._callback.msg(channel, "%s has registered. (not really)" % user)
+            self._callback.devoice(user, channel)
 	else:
-	    self.callback.msg(channel, "%s: you are not allowed to register now" % user)
-            self.callback.msg(channel, "%s: read the TOS and FAQ then ask an op for an account")
+	    self._callback.msg(channel, "%s: you are not allowed to register now" % user)
+            self._callback.msg(channel, "%s: read the TOS and FAQ then ask an op for an account")
 	    
     def allow(self, user, channel, text):
-	if self.callback.users[user]['op']:
-	    self.callback.msg(channel, "%s: go ahead and !register" % text.strip())
-	    self.callback.users[nick]['allowed'] = True
+	if self._callback.users[user]['op']:
+	    self._callback.msg(channel, "%s: go ahead and !register" % text.strip())
+	    self._callback.users[user]['allowed'] = True
 	else:
-	    self.callback.msg(channel, "%s: only ops can use this command" % user.nick)
+	    self._callback.msg(channel, "%s: only ops can use this command" % user.nick)
+
+    def test(self, user, channel, text):
+        print 'test'
+    def _test(self, user, channel, text):
+        print '_test'

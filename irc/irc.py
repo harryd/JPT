@@ -62,11 +62,11 @@ class LogBot(irc.IRCClient):
         self.logger.log("<%s> %s" % (user, msg))
         if msg[0] == '!':
             cmd = msg[1:].split(' ')[0]
-            if hasattr(self.cmds, cmd) and cmd not in self.badcmd:
+            if hasattr(self.cmds, cmd) and cmd[0] != '_':
                 func = getattr(self.cmds, cmd, None)
                 func(user, channel, msg[len(cmd)+2:-1])
             else:
-                say('%s: Command not found.' % user)
+                self.msg(channel,'%s: Command \'%s\' not found.' % (user, cmd))
         # Check to see if they're sending me a private message
         if channel == self.nickname:
             msg = "It isn't nice to whisper!  Play nice with the group."
