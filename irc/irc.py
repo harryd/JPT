@@ -6,21 +6,7 @@ from commands import Commands
 
 # system imports
 import time, sys
-
-class User:
-    def __init__(self, nick, messager):
-        self.nick = nick
-        self.messager = messager
-    def message(self, msg):
-        self.messager.msg(self.nick, msg)
-        
-class Channel:
-    def __init__(self, name, messager):
-        self.name = name
-        self.messager = messager
-    def message(self, msg):
-        self.messager.msg(self.name, msg)
-        
+       
 class MessageLogger:
     """
     An independent logger class (because separation of application
@@ -49,7 +35,7 @@ class LogBot(irc.IRCClient):
         self.logger = MessageLogger(open(self.factory.filename, "a"))
         self.logger.log("[connected at %s]" % 
                         time.asctime(time.localtime(time.time())))
-        self.allowed = []
+        self.users = {}
         self.cmds = Commands(self)
         
     def connectionLost(self, reason):
@@ -67,26 +53,24 @@ class LogBot(irc.IRCClient):
     def joined(self, channel):
         """This will get called when the bot joins the channel."""
         self.logger.log("[I have joined %s]" % channel)
+        self.who(channel)
 
     def privmsg(self, user, channel, msg):
+        #print self.users
         """This will get called when the bot receives a message."""
-        print user
-        user = User(user.split('!', 1)[0], self)
-        channel = Channel(channel, self)
+        user = user.split('!', 1)[0]
         self.logger.log("<%s> %s" % (user, msg))
-        
-
         if msg[0] == '!':
             cmd = msg[1:].split(' ')[0]
-            if hasattr(self.cmds, cmd) and cmd != '__init__':
+            if hasattr(self.cmds, cmd) and cmd not in self.badcmd:
                 func = getattr(self.cmds, cmd, None)
-                func(user, channel, msg[len(cmd)+2:])
+                func(user, channel, msg[len(cmd)+2:-1])
             else:
-                channel.message('%s: Command not found.' % user.nick)
+                say('%s: Command not found.' % user)
         # Check to see if they're sending me a private message
-        if channel.name == self.nickname:
+        if channel == self.nickname:
             msg = "It isn't nice to whisper!  Play nice with the group."
-            user.message(msg)
+            #user.message(msg)
             return
 
         # Otherwise check to see if it is a message directed at me
@@ -103,6 +87,35 @@ class LogBot(irc.IRCClient):
         old_nick = prefix.split('!')[0]
         new_nick = params[0]
         self.logger.log("%s is now known as %s" % (old_nick, new_nick))
+        
+    ############### Channel user-mode tracking methods ###############
+    def who(self, channel):
+        self.sendLine('WHO %s' % channel.lower())
+        self.users = {}
+    def irc_RPL_WHOREPLY(self, prefix, args):
+        me, chan, uname, host, server, nick, modes, name = args
+        self.users[nick] = {'voice': False, 'op': False, 'allowed': False, 'modes': modes}
+        if modes.strip('@') != modes:
+            self.users[nick]['op'] = True
+        if modes.strip('+') != modes:
+            self.users[nick]['voice'] = True
+    def irc_RPL_ENDOFWHO(self, prefix, args):
+        pass
+    def invalidate_chanmodes(self, user, channel, *args, **kwargs):
+        self.who(channel)
+    modeChanged = invalidate_chanmodes
+    userJoined = invalidate_chanmodes
+    userLeft = invalidate_chanmodes
+    userKicked = invalidate_chanmodes
+
+    def devoice(self, user, channel):
+        #self.msg('Chanserv', 'OP %s' % channel)
+        #self.mode(channel, True, 'o')
+        self.mode(channel, False, 'v', user=user)
+        #self.mode(channel, False, 'o')
+        
+
+    
 
 class LogBotFactory(protocol.ClientFactory):
     """A factory for LogBots.
