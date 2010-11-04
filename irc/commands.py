@@ -11,7 +11,7 @@ class Commands:
             self._callback.devoice(user, channel)
 	else:
 	    self._callback.msg(channel, "%s: you are not allowed to register now" % user)
-            self._callback.msg(channel, "%s: read the TOS and FAQ then ask an op for an account")
+            self._callback.msg(channel, "%s: read the TOS and FAQ then ask an op for an account" % user)
 	    
     def allow(self, user, channel, text):
 	if self._callback.users[user]['op']:

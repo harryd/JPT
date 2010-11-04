@@ -5,6 +5,11 @@ from twisted.python import log
 import sys
 
 if __name__ == '__main__':
+    # temporary - perhaps replaced with optparse or a config file.
+    if len(sys.argv) != 2:
+        print "usage: %s <channel>" % sys.argv[0]
+        sys.exit()
+
     # initialize logging
     log.startLogging(sys.stdout)
     

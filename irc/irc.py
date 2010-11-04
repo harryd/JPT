@@ -91,16 +91,26 @@ class LogBot(irc.IRCClient):
     ############### Channel user-mode tracking methods ###############
     def who(self, channel):
         self.sendLine('WHO %s' % channel.lower())
-        self.users = {}
+        self.new_users = {}
+
     def irc_RPL_WHOREPLY(self, prefix, args):
         me, chan, uname, host, server, nick, modes, name = args
-        self.users[nick] = {'voice': False, 'op': False, 'allowed': False, 'modes': modes}
-        if modes.strip('@') != modes:
-            self.users[nick]['op'] = True
-        if modes.strip('+') != modes:
-            self.users[nick]['voice'] = True
+
+        if nick in self.users:
+            allowed = self.users[nick]['allowed']
+        else:
+            allowed = False
+
+        self.new_users[nick] = {'voice': False, 'op': False, 'allowed': allowed, 'modes': modes}
+
+        if '@' in modes:
+            self.new_users[nick]['op'] = True
+        if '+' in modes:
+            self.new_users[nick]['voice'] = True
+
     def irc_RPL_ENDOFWHO(self, prefix, args):
-        pass
+        self.users = self.new_users
+
     def invalidate_chanmodes(self, user, channel, *args, **kwargs):
         self.who(channel)
     modeChanged = invalidate_chanmodes
