@@ -16,9 +16,10 @@ class Commands:
     def allow(self, user, channel, text):
 	if self._callback.users[user]['op']:
 	    self._callback.msg(channel, "%s: go ahead and !register" % text.strip())
-	    self._callback.users[user]['allowed'] = True
+            if text.strip() in self._callback.users:
+                self._callback.users[text.strip()]['allowed'] = True
 	else:
-	    self._callback.msg(channel, "%s: only ops can use this command" % user.nick)
+	    self._callback.msg(channel, "%s: only ops can use this command" % user)
 
     def test(self, user, channel, text):
         print 'test'
