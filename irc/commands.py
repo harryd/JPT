@@ -17,21 +17,23 @@ class Commands:
         if not self._callback.users[user]['op']:
             self._callback.msg(channel, "%s: only ops can use this command" % user)
             return
-
         target = text.strip()
-
-        if len(target) == 0:
-            self._callback.msg(channel, "%s: specify a nick, dummy!" % user)
-            return
-
-        if target not in self._callback.users:
-            self._callback.msg(channel, "%s: specify the nick of someone actually in the channel, dummy!" % user)
-            return
-
-        self._callback.msg(channel, "%s: go ahead and !register" % target)
-        self._callback.users[target]['allowed'] = True
+        if self._isNick(target):
+            self._callback.msg(channel, "%s: go ahead and !register" % target)
+            self._callback.users[target]['allowed'] = True
 
     def test(self, user, channel, text):
         print 'test'
     def _test(self, user, channel, text):
         print '_test'
+
+    def _isNick(self,nick):
+        if len(target) == 0:
+            self._callback.msg(channel, "%s: specify a nick, dummy!" % user)
+            return False
+        elif target not in self._callback.users:
+            self._callback.msg(channel, "%s: specify the nick of someone actually in the channel, dummy!" % user)
+            return False
+        else:
+            return True
+    
