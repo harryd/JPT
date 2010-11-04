@@ -64,7 +64,7 @@ class LogBot(irc.IRCClient):
             cmd = msg[1:].split(' ')[0]
             if hasattr(self.cmds, cmd) and cmd[0] != '_':
                 func = getattr(self.cmds, cmd, None)
-                func(user, channel, msg[len(cmd)+2:-1])
+                func(user, channel, msg[len(cmd)+2:])
             else:
                 self.msg(channel,'%s: Command \'%s\' not found.' % (user, cmd))
         # Check to see if they're sending me a private message
