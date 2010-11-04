@@ -145,3 +145,282 @@
 [14:35:31] [disconnected at Wed Nov  3 14:35:31 2010]
 [14:38:26] [connected at Wed Nov  3 14:38:26 2010]
 [14:38:44] [disconnected at Wed Nov  3 14:38:44 2010]
+[14:45:18] [connected at Wed Nov  3 14:45:18 2010]
+[14:45:58] [disconnected at Wed Nov  3 14:45:58 2010]
+[14:45:58] [connected at Wed Nov  3 14:45:58 2010]
+[14:46:48] [disconnected at Wed Nov  3 14:46:48 2010]
+[14:46:48] [connected at Wed Nov  3 14:46:48 2010]
+[14:47:14] [disconnected at Wed Nov  3 14:47:14 2010]
+[14:47:16] [connected at Wed Nov  3 14:47:16 2010]
+[14:47:39] [disconnected at Wed Nov  3 14:47:39 2010]
+[14:47:42] [connected at Wed Nov  3 14:47:42 2010]
+[14:47:59] [disconnected at Wed Nov  3 14:47:59 2010]
+[14:49:54] [connected at Wed Nov  3 14:49:54 2010]
+[14:50:07] [disconnected at Wed Nov  3 14:50:07 2010]
+[14:50:56] [connected at Wed Nov  3 14:50:56 2010]
+[14:50:56] <<irc.irc.User instance at 0x101f70b00>> *** Looking up your hostname...
+[14:50:56] <<irc.irc.User instance at 0x101f70b48>> *** Checking Ident
+[14:50:56] <<irc.irc.User instance at 0x101f70b48>> *** Found your hostname
+[14:51:04] [disconnected at Wed Nov  3 14:51:04 2010]
+[14:51:20] [connected at Wed Nov  3 14:51:20 2010]
+[14:51:20] <<irc.irc.User instance at 0x101f70b48>> *** Looking up your hostname...
+[14:51:20] <<irc.irc.User instance at 0x101f70b90>> *** Checking Ident
+[14:51:20] <<irc.irc.User instance at 0x101f70b48>> *** Found your hostname
+[14:51:34] <<irc.irc.User instance at 0x101f70b48>> *** No Ident response
+[14:51:38] [I have joined #anapnea2]
+[14:51:53] [disconnected at Wed Nov  3 14:51:53 2010]
+[14:51:56] [connected at Wed Nov  3 14:51:56 2010]
+[14:51:56] <<irc.irc.User instance at 0x101670b90>> *** Looking up your hostname...
+[14:51:56] <<irc.irc.User instance at 0x101670bd8>> *** Checking Ident
+[14:51:56] <<irc.irc.User instance at 0x101670b90>> *** Found your hostname
+[14:52:09] <<irc.irc.User instance at 0x101670b90>> *** No Ident response
+[14:52:13] [I have joined #anapnea2]
+[14:52:18] <<irc.irc.User instance at 0x101670b48>> !echo
+[14:52:32] <<irc.irc.User instance at 0x1016703b0>> !whois HarryD 
+[14:54:16] [disconnected at Wed Nov  3 14:54:16 2010]
+[14:54:42] [connected at Wed Nov  3 14:54:42 2010]
+[14:54:42] <<irc.irc.User instance at 0x101e70b90>> *** Looking up your hostname...
+[14:54:42] <<irc.irc.User instance at 0x101e70bd8>> *** Checking Ident
+[14:54:42] <<irc.irc.User instance at 0x101e70b90>> *** Found your hostname
+[14:54:54] <<irc.irc.User instance at 0x101e70b90>> *** No Ident response
+[14:54:58] [I have joined #anapnea2]
+[14:55:01] <<irc.irc.User instance at 0x101e70b48>> !whois HarryD 
+[15:03:23] <<irc.irc.User instance at 0x101e70c20>> !who
+[15:03:27] [disconnected at Wed Nov  3 15:03:27 2010]
+[15:11:33] [connected at Wed Nov  3 15:11:33 2010]
+[15:11:33] <<irc.irc.User instance at 0x101e70b48>> *** Looking up your hostname...
+[15:11:33] <<irc.irc.User instance at 0x101e70b90>> *** Checking Ident
+[15:11:33] <<irc.irc.User instance at 0x101e70b90>> *** Found your hostname
+[15:11:47] <<irc.irc.User instance at 0x101e70b90>> *** No Ident response
+[15:11:51] [I have joined #anapnea2]
+[15:11:54] <<irc.irc.User instance at 0x101e70b48>> !whois HarryD 
+[15:12:00] [disconnected at Wed Nov  3 15:12:00 2010]
+[15:12:21] [connected at Wed Nov  3 15:12:21 2010]
+[15:12:21] <<irc.irc.User instance at 0x101770b48>> *** Looking up your hostname...
+[15:12:21] <<irc.irc.User instance at 0x101770b90>> *** Checking Ident
+[15:12:22] <<irc.irc.User instance at 0x101770b90>> *** Found your hostname
+[15:12:32] <<irc.irc.User instance at 0x101770b90>> *** No Ident response
+[15:12:36] [I have joined #anapnea2]
+[15:12:37] <<irc.irc.User instance at 0x101770b48>> !whois HarryD 
+[15:16:19] [disconnected at Wed Nov  3 15:16:19 2010]
+[15:39:58] [connected at Wed Nov  3 15:39:58 2010]
+[15:39:58] <<irc.irc.User instance at 0x101e70b48>> *** Looking up your hostname...
+[15:39:58] <<irc.irc.User instance at 0x101e70b90>> *** Checking Ident
+[15:39:58] <<irc.irc.User instance at 0x101e70b90>> *** Found your hostname
+[15:40:11] <<irc.irc.User instance at 0x101e70b90>> *** No Ident response
+[15:40:15] [I have joined #anapnea2]
+[15:42:44] [disconnected at Wed Nov  3 15:42:44 2010]
+[19:36:54] [connected at Wed Nov  3 19:36:54 2010]
+[19:36:54] [disconnected at Wed Nov  3 19:36:54 2010]
+[19:36:55] [connected at Wed Nov  3 19:36:55 2010]
+[19:36:55] [disconnected at Wed Nov  3 19:36:55 2010]
+[19:36:55] [connected at Wed Nov  3 19:36:55 2010]
+[19:36:55] [disconnected at Wed Nov  3 19:36:55 2010]
+[19:36:55] [connected at Wed Nov  3 19:36:55 2010]
+[19:36:55] [disconnected at Wed Nov  3 19:36:55 2010]
+[19:36:55] [connected at Wed Nov  3 19:36:55 2010]
+[19:36:55] [disconnected at Wed Nov  3 19:36:55 2010]
+[19:36:55] [connected at Wed Nov  3 19:36:55 2010]
+[19:36:55] [disconnected at Wed Nov  3 19:36:55 2010]
+[19:36:55] [connected at Wed Nov  3 19:36:55 2010]
+[19:36:55] [disconnected at Wed Nov  3 19:36:55 2010]
+[19:36:55] [connected at Wed Nov  3 19:36:55 2010]
+[19:36:55] [disconnected at Wed Nov  3 19:36:55 2010]
+[19:36:55] [connected at Wed Nov  3 19:36:55 2010]
+[19:36:55] [disconnected at Wed Nov  3 19:36:55 2010]
+[19:36:56] [connected at Wed Nov  3 19:36:56 2010]
+[19:36:56] [disconnected at Wed Nov  3 19:36:56 2010]
+[19:36:56] [connected at Wed Nov  3 19:36:56 2010]
+[19:36:56] [disconnected at Wed Nov  3 19:36:56 2010]
+[19:36:56] [connected at Wed Nov  3 19:36:56 2010]
+[19:36:56] [disconnected at Wed Nov  3 19:36:56 2010]
+[19:36:56] [connected at Wed Nov  3 19:36:56 2010]
+[19:36:56] [disconnected at Wed Nov  3 19:36:56 2010]
+[19:36:56] [connected at Wed Nov  3 19:36:56 2010]
+[19:36:56] [disconnected at Wed Nov  3 19:36:56 2010]
+[19:36:56] [connected at Wed Nov  3 19:36:56 2010]
+[19:36:56] [disconnected at Wed Nov  3 19:36:56 2010]
+[19:36:56] [connected at Wed Nov  3 19:36:56 2010]
+[19:36:56] [disconnected at Wed Nov  3 19:36:56 2010]
+[19:36:56] [connected at Wed Nov  3 19:36:56 2010]
+[19:36:56] [disconnected at Wed Nov  3 19:36:56 2010]
+[19:36:56] [connected at Wed Nov  3 19:36:56 2010]
+[19:36:56] [disconnected at Wed Nov  3 19:36:56 2010]
+[19:36:56] [connected at Wed Nov  3 19:36:56 2010]
+[19:36:56] [disconnected at Wed Nov  3 19:36:56 2010]
+[19:36:57] [connected at Wed Nov  3 19:36:57 2010]
+[19:36:57] [disconnected at Wed Nov  3 19:36:57 2010]
+[19:36:57] [connected at Wed Nov  3 19:36:57 2010]
+[19:36:57] [disconnected at Wed Nov  3 19:36:57 2010]
+[19:36:57] [connected at Wed Nov  3 19:36:57 2010]
+[19:36:57] [disconnected at Wed Nov  3 19:36:57 2010]
+[19:36:57] [connected at Wed Nov  3 19:36:57 2010]
+[19:36:57] [disconnected at Wed Nov  3 19:36:57 2010]
+[19:36:57] [connected at Wed Nov  3 19:36:57 2010]
+[19:36:57] [disconnected at Wed Nov  3 19:36:57 2010]
+[19:36:57] [connected at Wed Nov  3 19:36:57 2010]
+[19:36:57] [disconnected at Wed Nov  3 19:36:57 2010]
+[19:36:57] [connected at Wed Nov  3 19:36:57 2010]
+[19:36:57] [disconnected at Wed Nov  3 19:36:57 2010]
+[19:37:27] [connected at Wed Nov  3 19:37:27 2010]
+[19:37:27] [disconnected at Wed Nov  3 19:37:27 2010]
+[19:37:28] [connected at Wed Nov  3 19:37:28 2010]
+[19:37:28] [disconnected at Wed Nov  3 19:37:28 2010]
+[19:37:28] [connected at Wed Nov  3 19:37:28 2010]
+[19:37:28] [disconnected at Wed Nov  3 19:37:28 2010]
+[19:37:28] [connected at Wed Nov  3 19:37:28 2010]
+[19:37:28] [disconnected at Wed Nov  3 19:37:28 2010]
+[19:37:28] [connected at Wed Nov  3 19:37:28 2010]
+[19:37:28] [disconnected at Wed Nov  3 19:37:28 2010]
+[19:37:28] [connected at Wed Nov  3 19:37:28 2010]
+[19:37:28] [disconnected at Wed Nov  3 19:37:28 2010]
+[19:37:28] [connected at Wed Nov  3 19:37:28 2010]
+[19:37:28] [disconnected at Wed Nov  3 19:37:28 2010]
+[19:37:28] [connected at Wed Nov  3 19:37:28 2010]
+[19:37:28] [disconnected at Wed Nov  3 19:37:28 2010]
+[19:37:28] [connected at Wed Nov  3 19:37:28 2010]
+[19:37:28] [disconnected at Wed Nov  3 19:37:28 2010]
+[19:37:29] [connected at Wed Nov  3 19:37:29 2010]
+[19:37:29] [disconnected at Wed Nov  3 19:37:29 2010]
+[19:37:29] [connected at Wed Nov  3 19:37:29 2010]
+[19:37:29] [disconnected at Wed Nov  3 19:37:29 2010]
+[19:37:29] [connected at Wed Nov  3 19:37:29 2010]
+[19:37:29] [disconnected at Wed Nov  3 19:37:29 2010]
+[19:37:29] [connected at Wed Nov  3 19:37:29 2010]
+[19:37:29] [disconnected at Wed Nov  3 19:37:29 2010]
+[19:37:29] [connected at Wed Nov  3 19:37:29 2010]
+[19:37:29] [disconnected at Wed Nov  3 19:37:29 2010]
+[19:37:29] [connected at Wed Nov  3 19:37:29 2010]
+[19:37:29] [disconnected at Wed Nov  3 19:37:29 2010]
+[19:37:29] [connected at Wed Nov  3 19:37:29 2010]
+[19:37:29] [disconnected at Wed Nov  3 19:37:29 2010]
+[19:37:29] [connected at Wed Nov  3 19:37:29 2010]
+[19:37:29] [disconnected at Wed Nov  3 19:37:29 2010]
+[19:37:29] [connected at Wed Nov  3 19:37:29 2010]
+[19:37:29] [disconnected at Wed Nov  3 19:37:29 2010]
+[19:37:30] [connected at Wed Nov  3 19:37:30 2010]
+[19:37:30] [disconnected at Wed Nov  3 19:37:30 2010]
+[19:37:30] [connected at Wed Nov  3 19:37:30 2010]
+[19:37:30] [disconnected at Wed Nov  3 19:37:30 2010]
+[19:37:30] [connected at Wed Nov  3 19:37:30 2010]
+[19:37:30] [disconnected at Wed Nov  3 19:37:30 2010]
+[19:37:30] [connected at Wed Nov  3 19:37:30 2010]
+[19:37:30] [disconnected at Wed Nov  3 19:37:30 2010]
+[19:37:30] [connected at Wed Nov  3 19:37:30 2010]
+[19:37:30] [disconnected at Wed Nov  3 19:37:30 2010]
+[19:49:20] [connected at Wed Nov  3 19:49:20 2010]
+[19:49:20] <<irc.irc.User instance at 0x101f70bd8>> *** Looking up your hostname...
+[19:49:20] <<irc.irc.User instance at 0x101f70c20>> *** Checking Ident
+[19:49:20] <<irc.irc.User instance at 0x101f70c20>> *** Couldn't look up your hostname
+[19:49:31] <<irc.irc.User instance at 0x101f70c20>> *** No Ident response
+[19:49:35] [I have joined #anapnea2]
+[19:49:40] <<irc.irc.User instance at 0x101f70bd8>> !register
+[19:49:57] [disconnected at Wed Nov  3 19:49:57 2010]
+[19:50:18] [connected at Wed Nov  3 19:50:18 2010]
+[19:50:18] <<irc.irc.User instance at 0x101770bd8>> *** Looking up your hostname...
+[19:50:18] <<irc.irc.User instance at 0x101770c20>> *** Checking Ident
+[19:50:18] <<irc.irc.User instance at 0x101770c20>> *** Couldn't look up your hostname
+[19:50:31] <<irc.irc.User instance at 0x101770c20>> *** No Ident response
+[19:50:35] [I have joined #anapnea2]
+[19:50:35] <<irc.irc.User instance at 0x101770bd8>> [freenode-info] why register and identify? your IRC nick is how people know you. http://freenode.net/faq.shtml#nicksetup
+[19:50:37] <<irc.irc.User instance at 0x101770bd8>> !register
+[19:50:44] <<irc.irc.User instance at 0x101770cb0>> !allow HarryD|an 
+[19:50:49] <<irc.irc.User instance at 0x1017703f8>> !register
+[19:50:52] <<irc.irc.User instance at 0x101770b90>> !register
+[19:51:25] [disconnected at Wed Nov  3 19:51:25 2010]
+[19:51:29] [connected at Wed Nov  3 19:51:29 2010]
+[19:51:29] <<irc.irc.User instance at 0x101670bd8>> *** Looking up your hostname...
+[19:51:30] <<irc.irc.User instance at 0x101670c20>> *** Checking Ident
+[19:51:30] <<irc.irc.User instance at 0x101670c20>> *** Couldn't look up your hostname
+[19:51:41] <<irc.irc.User instance at 0x101670c20>> *** No Ident response
+[19:51:45] [I have joined #anapnea2]
+[19:51:47] <<irc.irc.User instance at 0x101670bd8>> !register
+[19:51:50] <<irc.irc.User instance at 0x101670b90>> !allow HarryD|an 
+[19:51:59] [disconnected at Wed Nov  3 19:51:59 2010]
+[19:52:31] [connected at Wed Nov  3 19:52:31 2010]
+[19:52:32] <<irc.irc.User instance at 0x101e70bd8>> *** Looking up your hostname...
+[19:52:32] <<irc.irc.User instance at 0x101e70c20>> *** Checking Ident
+[19:52:32] <<irc.irc.User instance at 0x101e70c20>> *** Couldn't look up your hostname
+[19:52:46] <<irc.irc.User instance at 0x101e70c20>> *** No Ident response
+[19:52:50] [I have joined #anapnea2]
+[19:52:56] <<irc.irc.User instance at 0x101e70c20>> !register
+[19:52:59] <<irc.irc.User instance at 0x101e70b90>> !allow HarryD|an 
+[19:53:02] <<irc.irc.User instance at 0x101e703f8>> !register
+[19:53:33] [disconnected at Wed Nov  3 19:53:33 2010]
+[19:53:37] [connected at Wed Nov  3 19:53:37 2010]
+[19:53:37] <<irc.irc.User instance at 0x101f70bd8>> *** Looking up your hostname...
+[19:53:37] <<irc.irc.User instance at 0x101f70c20>> *** Checking Ident
+[19:53:37] <<irc.irc.User instance at 0x101f70c20>> *** Couldn't look up your hostname
+[19:53:51] <<irc.irc.User instance at 0x101f70c20>> *** No Ident response
+[19:53:55] [I have joined #anapnea]
+[20:00:13] <<irc.irc.User instance at 0x101f70cb0>> Hello, I would like an accout for an eggdrop :)
+[20:00:25] <<irc.irc.User instance at 0x101f70c68>> no eggdrop
+[20:00:37] <<irc.irc.User instance at 0x101f70a70>> Why doesn't anyone ever read the ToS or FAQ? =P
+[20:01:07] <<irc.irc.User instance at 0x101f70a70>> well it sais no BNC, didn't see anything about eggdrop's:D
+[20:01:21] <<irc.irc.User instance at 0x101f70c68>> Well, it said no bots, right? =P
+[20:01:32] <<irc.irc.User instance at 0x101f70cb0>> yeaa damnit
+[20:01:45] <<irc.irc.User instance at 0x101f70a70>> anywayz, ty for your time bbye
+[20:08:49] <<irc.irc.User instance at 0x101f70bd8>> bapa: wanna see something cool?
+[20:11:37] <<irc.irc.User instance at 0x101f70cb0>> Dunno, depends on how many sammiches I ate.
+[20:17:57] <<irc.irc.User instance at 0x101f70b90>> ok
+[20:18:04] <<irc.irc.User instance at 0x101f70c68>> try !register
+[20:25:00] <<irc.irc.User instance at 0x101f70a70>> bapa: try it
+[20:25:06] <<irc.irc.User instance at 0x101f703f8>> hi please I Want a free accoun !!
+[20:26:34] <<irc.irc.User instance at 0x101f70cb0>> HarryD: No.
+[20:26:39] <<irc.irc.User instance at 0x101f70c68>> dude
+[20:28:07] <<irc.irc.User instance at 0x101f70b90>> allhen: Wait for a channel op and ask 'em.
+[20:30:26] <<irc.irc.User instance at 0x101f70a70>> bapa: do it plox
+[20:31:39] <<irc.irc.User instance at 0x101f70b90>> No, and stop asking me to.
+[20:31:56] <<irc.irc.User instance at 0x101f70a70>> damn
+[20:32:00] <<irc.irc.User instance at 0x101f70cb0>> darkf: help?
+[20:44:20] <<irc.irc.User instance at 0x101f70cb0>> anybody?
+[20:45:08] <<irc.irc.User instance at 0x101f703f8>> netrealm: help?
+[20:46:29] <<irc.irc.User instance at 0x101f703f8>> also darkf: 1578
+[20:52:47] <<irc.irc.User instance at 0x101f70c68>> welcome to next host....
+[20:53:55] <<irc.irc.User instance at 0x101f70a70>> k\-: can you help me test something?
+[20:58:41] * k\- i suck at testing but i'll try
+[20:58:50] <<irc.irc.User instance at 0x101f70b90>> ok
+[20:58:55] <<irc.irc.User instance at 0x101f70cb0>> try !register
+[20:59:07] <<irc.irc.User instance at 0x101f70c68>> !register
+[20:59:12] <<irc.irc.User instance at 0x101f70b90>> sweet
+[20:59:18] <<irc.irc.User instance at 0x101f70cb0>> !allow k\- 
+[20:59:22] <<irc.irc.User instance at 0x101f70bd8>> WOOOOOOOOO, harry ... SCORE
+[20:59:32] <<irc.irc.User instance at 0x101f70cb0>> k\-: try again
+[20:59:48] <<irc.irc.User instance at 0x101f70b90>> is jp2_ the bot?
+[20:59:51] <<irc.irc.User instance at 0x101f70c68>> yes
+[20:59:57] <<irc.irc.User instance at 0x101f70cb0>> try to register again
+[21:00:02] <<irc.irc.User instance at 0x101f70b90>> !regster
+[21:00:16] <<irc.irc.User instance at 0x101f70c68>> errr....
+[21:00:25] <<irc.irc.User instance at 0x101f70bd8>> there is an i in register
+[21:00:40] <<irc.irc.User instance at 0x101f70c68>> lol
+[21:01:23] <<irc.irc.User instance at 0x101f70b90>> k\-: try again
+[21:01:36] <<irc.irc.User instance at 0x101f70cb0>> upz... hey HArryD: what about redirection of of command not found or the regex... shouldn't it match register(lower) 
+[21:01:47] <<irc.irc.User instance at 0x101f70c68>> /of//
+[21:01:53] <<irc.irc.User instance at 0x101f70b90>> !register
+[21:02:05] <<irc.irc.User instance at 0x101f70cb0>> sweet 
+[21:02:09] <<irc.irc.User instance at 0x101f70c68>> it works
+[21:02:24] <<irc.irc.User instance at 0x101f70bd8>> now to only let ops allow peeps
+[21:02:38] [disconnected at Wed Nov  3 21:02:38 2010]
+[21:04:15] [connected at Wed Nov  3 21:04:15 2010]
+[21:04:15] <<irc.irc.User instance at 0x101ef7c68>> *** Looking up your hostname...
+[21:04:15] <<irc.irc.User instance at 0x101ef7cb0>> *** Checking Ident
+[21:04:15] <<irc.irc.User instance at 0x101ef7cb0>> *** Couldn't look up your hostname
+[21:04:20] [disconnected at Wed Nov  3 21:04:20 2010]
+[21:04:44] [connected at Wed Nov  3 21:04:44 2010]
+[21:04:44] <<irc.irc.User instance at 0x101ef7c68>> *** Looking up your hostname...
+[21:04:44] <<irc.irc.User instance at 0x101ef7cb0>> *** Checking Ident
+[21:04:44] <<irc.irc.User instance at 0x101ef7c68>> *** Couldn't look up your hostname
+[21:04:59] <<irc.irc.User instance at 0x101ef7c68>> *** No Ident response
+[21:05:03] [I have joined #anapnea]
+[21:05:05] <<irc.irc.User instance at 0x101ef7cb0>> thanks HarryD for letting make an ass of myself...
+[21:05:06] <<irc.irc.User instance at 0x101ef7cf8>> !r[eE]?*g[sS]*er
+[21:05:12] <<irc.irc.User instance at 0x101ef7c20>> np
+[21:05:19] <<irc.irc.User instance at 0x101ef7488>> k\-: you are not voiced by an admin
+[21:05:36] <<irc.irc.User instance at 0x101ef7cf8>> deathowl: we are testing a new way to do it
+[21:05:37] <<irc.irc.User instance at 0x101ef7488>> oooo HarryD...
+[21:05:43] <<irc.irc.User instance at 0x101ef7cf8>> HarryD: ooh
+[21:05:50] <<irc.irc.User instance at 0x101ef7c20>> !allow deathowl 
+[21:06:05] <<irc.irc.User instance at 0x101ef7cf8>> !register
+[21:06:24] <<irc.irc.User instance at 0x101ef7cf8>> hmm
+[21:06:24] <<irc.irc.User instance at 0x101ef7b00>> cool?
+[21:06:26] [disconnected at Wed Nov  3 21:06:26 2010]

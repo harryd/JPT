@@ -9,7 +9,7 @@ if __name__ == '__main__':
     log.startLogging(sys.stdout)
     
     # create factory protocol and application
-    f = LogBotFactory('anapnea2', 'jp.log')
+    f = LogBotFactory(sys.argv[1], 'jp.log')
     
     # connect factory to this host and port
     reactor.connectTCP("irc.freenode.net", 6667, f)

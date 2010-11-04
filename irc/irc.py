@@ -45,20 +45,19 @@ class LogBot(irc.IRCClient):
     nickname = "jp2"
     
     def connectionMade(self):
-        irc.IRCClient.connectionMade(self)
-        self.cmds = Commands(self)
+        irc.IRCClient.connectionMade(self)    
         self.logger = MessageLogger(open(self.factory.filename, "a"))
         self.logger.log("[connected at %s]" % 
                         time.asctime(time.localtime(time.time())))
-
+        self.allowed = []
+        self.cmds = Commands(self)
+        
     def connectionLost(self, reason):
         irc.IRCClient.connectionLost(self, reason)
         self.logger.log("[disconnected at %s]" % 
                         time.asctime(time.localtime(time.time())))
         self.logger.close()
-
-
-
+        
     # callbacks for events
 
     def signedOn(self):
@@ -68,9 +67,6 @@ class LogBot(irc.IRCClient):
     def joined(self, channel):
         """This will get called when the bot joins the channel."""
         self.logger.log("[I have joined %s]" % channel)
-
-    def handleCommand(self, command, prefix, params):
-        pass
 
     def privmsg(self, user, channel, msg):
         """This will get called when the bot receives a message."""

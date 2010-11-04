@@ -3,8 +3,11 @@ class Commands:
 	self.commands = {}
 	self.callback = callback
     def register(self, user, channel, text):
-	channel.message("nazgjunk: send HarryD the !register code damn it")
-    def echo(self, user, channel, text):
-	channel.message("%s: good day" % user.nick)
-    def who(self, user, channel, text):
-	channel.message(self.callback.irc_LIST(user.nick, channel.name))
+	if user.nick in self.callback.allowed:
+	    channel.message("%s has registered. (not really)" % user.nick)
+	    channel.message("nazgjunk: send HarryD the !register code damn it")
+	else:
+	    channel.message("NO")
+    def allow(self, user, channel, text):
+	channel.message("%s: go ahead and !register" % text.strip())
+	self.callback.allowed.append(text.strip())
