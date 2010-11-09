@@ -58,6 +58,7 @@ class LogBot(irc.IRCClient):
     def privmsg(self, user, channel, msg):
         #print self.users
         """This will get called when the bot receives a message."""
+        self.cmds._users = self.users
         user = user.split('!', 1)[0]
         self.logger.log("<%s> %s" % (user, msg))
         if msg[0] == '!':
