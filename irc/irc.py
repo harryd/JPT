@@ -13,22 +13,22 @@ class MessageLogger:
     and protocol logic is a good thing).
     """
     def __init__(self, file):
-        self.file = file
+        self.log_file = file
 
     def log(self, message):
         """Write a message to the file."""
         timestamp = time.strftime("[%H:%M:%S]", time.localtime(time.time()))
-        self.file.write('%s %s\n' % (timestamp, message))
-        self.file.flush()
+        self.log_file.write('%s %s\n' % (timestamp, message))
+        self.log_file.flush()
 
     def close(self):
-        self.file.close()
+        self.log_file.close()
 
 
-class LogBot(irc.IRCClient):
-    """A logging IRC bot."""
+class JPTBot(irc.IRCClient):
+    """A higly configurable IRC bot."""
     
-    nickname = "jp2"
+    nickname = "JPT"
     
     def connectionMade(self):
         irc.IRCClient.connectionMade(self)    
@@ -128,14 +128,14 @@ class LogBot(irc.IRCClient):
 
     
 
-class LogBotFactory(protocol.ClientFactory):
-    """A factory for LogBots.
+class JPTBotFactory(protocol.ClientFactory):
+    """A factory for JPTBots.
 
     A new protocol instance will be created each time we connect to the server.
     """
 
     # the class of the protocol to build when new connection is made
-    protocol = LogBot
+    protocol = JPTBot
 
     def __init__(self, channel, filename):
         self.channel = channel

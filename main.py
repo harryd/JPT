@@ -1,5 +1,5 @@
-#!/usr/bin/python2.6
-from irc.irc import LogBotFactory
+#!/usr/bin/python2
+from irc.irc import JPTBotFactory
 from twisted.internet import reactor, protocol
 from twisted.python import log
 import sys
@@ -14,7 +14,7 @@ if __name__ == '__main__':
     log.startLogging(sys.stdout)
     
     # create factory protocol and application
-    f = LogBotFactory(sys.argv[1], 'jp.log')
+    f = JPTBotFactory(sys.argv[1], 'JPT.log')
     
     # connect factory to this host and port
     reactor.connectTCP("irc.freenode.net", 6667, f)
