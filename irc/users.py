@@ -11,4 +11,6 @@ class User():
 
     def message(self, message):
         self.callback.msg(str(self), message)
-
+    
+    def channel_message(self, message):
+        self.callback.msg(self.channel, '%s: %s' % (str(self), message))

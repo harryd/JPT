@@ -1,13 +1,10 @@
 from twisted.words.protocols import irc
 from twisted.internet import reactor, protocol
 
-
 from commands import commandmanager
 from users import User
-from logging import Logger
 from plugins import PluginManager
 
-# system imports
 import time, sys
        
 class JPTBot(irc.IRCClient):
@@ -16,29 +13,24 @@ class JPTBot(irc.IRCClient):
         self.nickname = 'JPT'
         #self.lineRate = 1
         self.users = {}
-        self.channels = {}
         self.queue = []
         self.sent = []
         
     def connectionMade(self):
         irc.IRCClient.connectionMade(self)    
-        self.logger = Logger(open(self.factory.filename, 'a'))
-        self.logger.log('[connected at %s]' % 
-                        time.asctime(time.localtime(time.time())))
+        print 'Connected to server.'
         
     def connectionLost(self, reason):
         irc.IRCClient.connectionLost(self, reason)
-        self.logger.log('[disconnected at %s]' % 
-                        time.asctime(time.localtime(time.time())))
-        self.logger.close()
-        
+        print 'Disconnected from server.'
+
     def signedOn(self):
         for channel in self.factory.channels:
             self.join(channel)
 
     def joined(self, channel):
-        self.logger.log('[I have joined %s]' % channel)
         self.who(channel)
+        print "Joined channel: %s" % channel
 
     def msg(self, user, message, length=512):
         fmt = "PRIVMSG %s :%%s" % (user,)
@@ -57,7 +49,7 @@ class JPTBot(irc.IRCClient):
             user = self.users[user]
         else:
             user = User(self, host=user)
-        print commandmanager.onMsg(self, user, channel, msg)
+        commandmanager.onMsg(self, user, channel, msg)
 
     def who(self, channel):
         self.sendLine('WHO %s' % channel.lower())
@@ -71,15 +63,16 @@ class JPTBot(irc.IRCClient):
         self.new_users[str(user)] = user
 
     def irc_RPL_ENDOFWHO(self, prefix, args):
-        for user in self.users:
-            if user not in self.new_users:
-                del self.users[str(user)]
+        try:
+            for user in self.users:
+                if user not in self.new_users:
+                    del self.users[str(user)]
+        except RuntimeError:
+            print 'ERROR: WHO happened too fast.'
 
-    def irc_NICK(self, prefix, params):
-        self.who(channel)
-    
     def invalidate_chanmodes(self, user, channel, *args, **kwargs):
         self.who(channel)
+    #irc_NICK    = invalidate_chanmodes
     modeChanged = invalidate_chanmodes
     userJoined  = invalidate_chanmodes
     userLeft    = invalidate_chanmodes
@@ -94,12 +87,12 @@ class JPTBotFactory(protocol.ClientFactory):
     # the class of the protocol to build when new connection is made
     protocol = JPTBot
 
-    def __init__(self, channels, filename):
+    def __init__(self, channels):
         self.channels = channels
-        self.filename = filename
 
     def clientConnectionLost(self, connector, reason):
         '''If we get disconnected, reconnect to server.'''
+        print 'Reconnecting.'
         connector.connect()
 
     def clientConnectionFailed(self, connector, reason):

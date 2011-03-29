@@ -24,11 +24,17 @@ class CommandManager:
     def __init__(self):
         self.prefixes = '#.!'
         self.command_handlers = {}
+        self.command_help = {}
+        self.command_usage = {}
     
     def register(self, command, func):
         if not self.command_handlers.has_key(command):
             self.command_handlers[command] = []
+            self.command_help[command] = []
+            self.command_usage[command] = []
         self.command_handlers[command].append(func)
+        self.command_help[command].append('\n'.join(func.__doc__.split()[2:]))
+        self.command_usage[command].append(func.__doc__.split()[0])
     
     def trigger(self, cb, user, channel, command, text):
         if self.command_handlers.has_key(command):
@@ -40,7 +46,7 @@ class CommandManager:
                         usages = command_info[command].usages
                     except KeyError:
                         usages = []
-                    user.message('Invalid Usage of #' + command + ' command. ' + str(e))
+                    user.message('Invalid Usage of !' + command + ' command. ' + str(e))
                     for usage in usages:
                         user.message('Usage: ' + command + ' ' + usage)
                 except StateError, e:
@@ -66,17 +72,18 @@ commandmanager = CommandManager()
 def registerCommandHandler(command, func):
     commandmanager.register(command, func)
 
+
 class commandHandler(object):
-    def __init__(self, name):
+    def __init__(self, name, alias= None):
         self.command_name = name
+        self.command_alias = alias
     def __call__(self, f):
         self.__doc__ = f.__doc__
         self.__name__ = f.__name__
         registerCommandHandler(self.command_name, f)
+        if self.command_alias != None:
+            commandmanager.register(self.command_alias, f)
+
         return f
 
-@commandHandler('notr')
-def notrfunc(cb, user, channel, text):
-    print "yo"
-    user.message("hi")
 
