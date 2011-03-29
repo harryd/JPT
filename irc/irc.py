@@ -1,151 +1,108 @@
 from twisted.words.protocols import irc
 from twisted.internet import reactor, protocol
-from twisted.python import log
 
-from commands import Commands
+
+from commands import commandmanager
+from users import User
+from logging import Logger
+from plugins import PluginManager
 
 # system imports
 import time, sys
        
-class MessageLogger:
-    """
-    An independent logger class (because separation of application
-    and protocol logic is a good thing).
-    """
-    def __init__(self, file):
-        self.log_file = file
-
-    def log(self, message):
-        """Write a message to the file."""
-        timestamp = time.strftime("[%H:%M:%S]", time.localtime(time.time()))
-        self.log_file.write('%s %s\n' % (timestamp, message))
-        self.log_file.flush()
-
-    def close(self):
-        self.log_file.close()
-
-
 class JPTBot(irc.IRCClient):
-    """A higly configurable IRC bot."""
-    
-    nickname = "JPT"
-    
+    '''A higly configurable IRC bot.'''
+    def __init__(self):
+        self.nickname = 'JPT'
+        #self.lineRate = 1
+        self.users = {}
+        self.channels = {}
+        self.queue = []
+        self.sent = []
+        
     def connectionMade(self):
         irc.IRCClient.connectionMade(self)    
-        self.logger = MessageLogger(open(self.factory.filename, "a"))
-        self.logger.log("[connected at %s]" % 
+        self.logger = Logger(open(self.factory.filename, 'a'))
+        self.logger.log('[connected at %s]' % 
                         time.asctime(time.localtime(time.time())))
-        self.users = {}
-        self.cmds = Commands(self)
         
     def connectionLost(self, reason):
         irc.IRCClient.connectionLost(self, reason)
-        self.logger.log("[disconnected at %s]" % 
+        self.logger.log('[disconnected at %s]' % 
                         time.asctime(time.localtime(time.time())))
         self.logger.close()
         
-    # callbacks for events
-
     def signedOn(self):
-        """Called when bot has succesfully signed on to server."""
-        self.join(self.factory.channel)
+        for channel in self.factory.channels:
+            self.join(channel)
 
     def joined(self, channel):
-        """This will get called when the bot joins the channel."""
-        self.logger.log("[I have joined %s]" % channel)
+        self.logger.log('[I have joined %s]' % channel)
         self.who(channel)
 
+    def msg(self, user, message, length=512):
+        fmt = "PRIVMSG %s :%%s" % (user,)
+
+        # NOTE: minimumLength really equals len(fmt) - 2 (for '%s') + 2
+        # (for the line-terminating CRLF)
+        minimumLength = len(fmt)
+        if length <= minimumLength:
+            raise ValueError("Maximum length must exceed %d for message "
+                             "to %s" % (minimumLength, user))
+        self.sendLine(fmt % (message,))
+
     def privmsg(self, user, channel, msg):
-        #print self.users
-        """This will get called when the bot receives a message."""
-        self.cmds._users = self.users
         user = user.split('!', 1)[0]
-        self.logger.log("<%s> %s" % (user, msg))
-        if msg[0] == '!':
-            cmd = msg[1:].split(' ')[0]
-            if hasattr(self.cmds, cmd) and cmd[0] != '_':
-                func = getattr(self.cmds, cmd, None)
-                func(user, channel, msg[len(cmd)+2:])
-            else:
-                self.msg(channel,'%s: Command \'%s\' not found.' % (user, cmd))
-        # Check to see if they're sending me a private message
-        if channel == self.nickname:
-            msg = "It isn't nice to whisper!  Play nice with the group."
-            #user.message(msg)
-            return
+        if user in self.users:
+            user = self.users[user]
+        else:
+            user = User(self, host=user)
+        print commandmanager.onMsg(self, user, channel, msg)
 
-        # Otherwise check to see if it is a message directed at me
-
-    def action(self, user, channel, msg):
-        """This will get called when the bot sees someone do an action."""
-        user = user.split('!', 1)[0]
-        self.logger.log("* %s %s" % (user, msg))
-
-    # irc callbacks
-
-    def irc_NICK(self, prefix, params):
-        """Called when an IRC user changes their nickname."""
-        old_nick = prefix.split('!')[0]
-        new_nick = params[0]
-        self.logger.log("%s is now known as %s" % (old_nick, new_nick))
-        
-    ############### Channel user-mode tracking methods ###############
     def who(self, channel):
         self.sendLine('WHO %s' % channel.lower())
         self.new_users = {}
 
     def irc_RPL_WHOREPLY(self, prefix, args):
         me, chan, uname, host, server, nick, modes, name = args
-
-        if nick in self.users:
-            allowed = self.users[nick]['allowed']
-        else:
-            allowed = False
-
-        self.new_users[nick] = {'voice': False, 'op': False, 'allowed': allowed, 'modes': modes}
-
-        if '@' in modes:
-            self.new_users[nick]['op'] = True
-        if '+' in modes:
-            self.new_users[nick]['voice'] = True
+        user = User(self, nick, chan, host, modes)
+        if user not in self.users:
+            self.users[str(user)] = user
+        self.new_users[str(user)] = user
 
     def irc_RPL_ENDOFWHO(self, prefix, args):
-        self.users = self.new_users
+        for user in self.users:
+            if user not in self.new_users:
+                del self.users[str(user)]
 
+    def irc_NICK(self, prefix, params):
+        self.who(channel)
+    
     def invalidate_chanmodes(self, user, channel, *args, **kwargs):
         self.who(channel)
     modeChanged = invalidate_chanmodes
-    userJoined = invalidate_chanmodes
-    userLeft = invalidate_chanmodes
-    userKicked = invalidate_chanmodes
-
-    def devoice(self, user, channel):
-        #self.msg('Chanserv', 'OP %s' % channel)
-        #self.mode(channel, True, 'o')
-        self.mode(channel, False, 'v', user=user)
-        #self.mode(channel, False, 'o')
-        
-
-    
+    userJoined  = invalidate_chanmodes
+    userLeft    = invalidate_chanmodes
+    userKicked  = invalidate_chanmodes
 
 class JPTBotFactory(protocol.ClientFactory):
-    """A factory for JPTBots.
+    '''A factory for JPTBots.
 
     A new protocol instance will be created each time we connect to the server.
-    """
+    '''
 
     # the class of the protocol to build when new connection is made
     protocol = JPTBot
 
-    def __init__(self, channel, filename):
-        self.channel = channel
+    def __init__(self, channels, filename):
+        self.channels = channels
         self.filename = filename
 
     def clientConnectionLost(self, connector, reason):
-        """If we get disconnected, reconnect to server."""
+        '''If we get disconnected, reconnect to server.'''
         connector.connect()
 
     def clientConnectionFailed(self, connector, reason):
-        print "connection failed:", reason
+        print 'connection failed:', reason
         reactor.stop()
 

@@ -14,7 +14,7 @@ if __name__ == '__main__':
     log.startLogging(sys.stdout)
     
     # create factory protocol and application
-    f = JPTBotFactory(sys.argv[1], 'JPT.log')
+    f = JPTBotFactory(sys.argv[1:], 'JPT.log')
     
     # connect factory to this host and port
     reactor.connectTCP("irc.freenode.net", 6667, f)
