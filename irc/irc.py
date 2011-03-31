@@ -1,10 +1,8 @@
 from twisted.words.protocols import irc
 from twisted.internet import reactor, protocol
 
-from commands import commandmanager
 from users import User
-from plugins import PluginManager
-
+import commands, plugins
 import time, sys
        
 class JPTBot(irc.IRCClient):
@@ -44,12 +42,21 @@ class JPTBot(irc.IRCClient):
         self.sendLine(fmt % (message,))
 
     def privmsg(self, user, channel, msg):
-        user = user.split('!', 1)[0]
+        user = user.split('!', 1)
+        if len(user) == 2:
+            user, hostmask = user[0], user[1]
+        else:
+            user = user[0]
+        if msg == '!reload':
+            print 'Reloading'
+            commands.commandmanager.clear()
+            reload(plugins)
+            return
         if user in self.users:
             user = self.users[user]
         else:
-            user = User(self, host=user)
-        commandmanager.onMsg(self, user, channel, msg)
+            user = User(self, user, channel)
+        commands.commandmanager.onMsg(self, user, channel, msg)
 
     def who(self, channel):
         self.sendLine('WHO %s' % channel.lower())

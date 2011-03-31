@@ -8,14 +8,16 @@ class PluginManager():
         files = os.listdir(self.plugins_path)
         for file in files:
             if file[0] != '.' and file[-2:] == 'py':
-                path = os.path.basename(self.plugins_path) + '.' + os.path.splitext(file)[0]
+                path = self.plugins_path + '/' + file
                 try:
-                    self.plugin_modules.append(__import__(path))
+                    execfile(path)
                 except ImportError as e:
-                    print 'Plugin (%s) not loaded. [%s]' % (path, e)
+                    print 'File [%s] not loaded. (%s)' % (path, e)
                 else:
-                    print 'Plugin (%s) loaded.' % path
-def main():
-    pm = PluginManager()
-    pm.loadPlugins()
-main()
+                    print 'File [%s] loaded.' % path
+    def clear(self):
+        self.plugin_modules = []
+
+
+pm = PluginManager()
+pm.loadPlugins()

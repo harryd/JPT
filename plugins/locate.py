@@ -4,7 +4,7 @@ import GeoIP
 import re
 import socket
 import sys
-from irc.commands import commandHandler
+from commands import commandHandler
 
 def get_ip(hostmask):
 	if re.search(r'[0-9]+(?:\.[0-9]+){3}', hostmask) != None:

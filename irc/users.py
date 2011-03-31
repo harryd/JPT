@@ -7,7 +7,7 @@ class User():
         self.modes = modes
 
     def __str__(self):
-        return "'%s'" % self.nick
+        return '%s' % self.nick
 
     def message(self, message):
         self.callback.msg(str(self), message)

@@ -1,4 +1,4 @@
-import sys, traceback
+#import sys, traceback
 
 class UsageError(Exception):
     '''Invalid client usage of command'''
@@ -33,8 +33,8 @@ class CommandManager:
             self.command_help[command] = []
             self.command_usage[command] = []
         self.command_handlers[command].append(func)
-        self.command_help[command].append('\n'.join(func.__doc__.split()[2:]))
-        self.command_usage[command].append(func.__doc__.split()[0])
+        self.command_help[command].append(''.join(func.__doc__.split('\n')[2:]))
+        self.command_usage[command].append(func.__doc__.split('\n')[0])
     
     def trigger(self, cb, user, channel, command, text):
         if self.command_handlers.has_key(command):
@@ -43,33 +43,41 @@ class CommandManager:
                     func(cb, user, channel, text)
                 except UsageError, e:
                     try:
-                        usages = command_info[command].usages
+                        usages = command_usage[command]
                     except KeyError:
                         usages = []
-                    user.message('Invalid Usage of !' + command + ' command. ' + str(e))
+                    user.channel_message('Invalid Usage of !' + command + ' command. ' + str(e))
                     for usage in usages:
-                        user.message('Usage: ' + command + ' ' + usage)
+                        user.channel_message('Usage: ' + command + ' ' + usage)
                 except StateError, e:
-                    user.message(str(e))
+                    user.channel_message(str(e))
                 except ArgumentValueError, e:
-                    user.message('Invalid argument. ' + str(e))
+                    user.channel_message('Invalid argument. ' + str(e))
                 except ValueError:
-                    user.message('Value Error: Did you specify a valid user?')
-                except:
-                    pass
+                    user.channel_message('Value Error: Did you specify a valid user?')
+                except e:
+                    print e
         else:
-            user.message('Command not found')
-    
+            user.channel_message('Command not found')
+             
     def onMsg(self, cb, user, channel, text):
         if len(text) > 0 and self.prefixes.find(text[0]) != -1:
             cmd = text[1:].split(' ')[0]
             self.trigger(cb, user, channel, cmd, text[len(cmd)+2:])
             return False
         return True
+    
+    def clear(self):
+        self.command_handlers = {}
+        self.command_help = {}
+        self.command_usage = {}
+  
 
 commandmanager = CommandManager()
 
 def registerCommandHandler(command, func):
+    if func.__doc__ == None:
+        func.__doc__ = 'This function has no usage.\n\nThis function has no help.'
     commandmanager.register(command, func)
 
 

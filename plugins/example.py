@@ -1,4 +1,4 @@
-from irc.commands import commandHandler
+from commands import commandHandler
 
 @commandHandler('example', 'e') # This handles !example and !e
 def example_command(cb, user, channel, text):

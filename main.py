@@ -4,6 +4,7 @@ from twisted.internet import reactor, protocol
 from twisted.python import log
 import sys
 
+DEBUG = True
 if __name__ == '__main__':
     # temporary - perhaps replaced with optparse or a config file.
     if len(sys.argv) != 2:
@@ -11,7 +12,8 @@ if __name__ == '__main__':
         sys.exit()
 
     # initialize logging
-    log.startLogging(open('JPT.log', 'a+'))
+    if DEBUG == False:
+        log.startLogging(open('JPT.log', 'a+'))
     
     # create factory protocol and application
     f = JPTBotFactory(sys.argv[1:])
